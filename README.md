@@ -8,6 +8,11 @@ Inspired by [Check](https://chandan-02.github.io/anime-facts-rest-api/) but writ
 
   > Note: This project is can be hosted on Koeyb with free account;
 
+# Warning :
+
+http.server is not recommended for production. It only implements basic security checks. 
+So if you think scale this use appropriate methods to protect the API instead expose directly to internet
+
 ### Home Route
 Get all the available anime's list : `http://localhost:8080/api/v1`
 *returns* : 
@@ -30,11 +35,11 @@ Get all the available anime's list : `http://localhost:8080/api/v1`
 }
 ```
 ### Anime Facts Route 
-Get all facts related to an Anime  : `http://localhost:8080/api/v1/:anime_name`
+Get all facts related to an Anime  : `http://localhost:8080/api/v1/?q=:anime_name`
 > Provide an anime name (from the available option) in place of `:anime_name`
 
 ***Example*** : 
-`http://localhost:8080/api/v1/fma_brotherhood`
+`http://localhost:8080/api/v1/?q=fma_brotherhood`
 *returns* : 
 ```
 {
@@ -55,11 +60,11 @@ Get all facts related to an Anime  : `http://localhost:8080/api/v1/:anime_name`
 }	
 ```
 ### Specific Fact Route 
-Get all facts related to an Anime  : `http://localhost:8080/api/v1/:anime_name/:fact_id`
+Get all facts related to an Anime  : `http://localhost:8080/api/v1/?q=:anime_name&i=:fact_id`
 > Provide an anime name & fact id (from the available option) in place of `:anime_name & :fact_id`
 
 ***Example*** : 
-`http://localhost:8080/api/v1/fma_brotherhood/2`
+`http://localhost:8080/api/v1/?q=fma_brotherhood&i=2`
 *returns* : 
 ```
 {
