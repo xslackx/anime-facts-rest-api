@@ -1,14 +1,15 @@
 
 # anime-facts-rest-api 🐱‍🚀
 
-An API in Node.js that will return anime facts. [Check docs](https://chandan-02.github.io/anime-facts-rest-api/)
+An API in Pure Python that will return anime facts. 
+Inspired by [Check](https://chandan-02.github.io/anime-facts-rest-api/) but write in pure python
 
 # Usage :
 
-  > Note: This project is being hosted on Heroku with free dyno; so, there can/will be a delay for the first time you make a request, subsequent requests will be faster.
+  > Note: This project is can be hosted on Koeyb with free account;
 
 ### Home Route
-Get all the available anime's list : `https://anime-facts-rest-api.herokuapp.com/api/v1`
+Get all the available anime's list : `http://localhost:8080/api/v1`
 *returns* : 
 ```
 {
@@ -29,11 +30,11 @@ Get all the available anime's list : `https://anime-facts-rest-api.herokuapp.com
 }
 ```
 ### Anime Facts Route 
-Get all facts related to an Anime  : `https://anime-facts-rest-api.herokuapp.com/api/v1/:anime_name`
+Get all facts related to an Anime  : `http://localhost:8080/api/v1/:anime_name`
 > Provide an anime name (from the available option) in place of `:anime_name`
 
 ***Example*** : 
-`https://anime-facts-rest-api.herokuapp.com/api/v1/fma_brotherhood`
+`http://localhost:8080/api/v1/fma_brotherhood`
 *returns* : 
 ```
 {
@@ -51,14 +52,14 @@ Get all facts related to an Anime  : `https://anime-facts-rest-api.herokuapp.com
 		},
 		...
 	]
-}
+}	
 ```
 ### Specific Fact Route 
-Get all facts related to an Anime  : `https://anime-facts-rest-api.herokuapp.com/api/v1/:anime_name/:fact_id`
+Get all facts related to an Anime  : `http://localhost:8080/api/v1/:anime_name/:fact_id`
 > Provide an anime name & fact id (from the available option) in place of `:anime_name & :fact_id`
 
 ***Example*** : 
-`https://anime-facts-rest-api.herokuapp.com/api/v1/fma_brotherhood/2`
+`http://localhost:8080/api/v1/fma_brotherhood/2`
 *returns* : 
 ```
 {
@@ -71,14 +72,7 @@ Get all facts related to an Anime  : `https://anime-facts-rest-api.herokuapp.com
 }
 ```
 
-# [Rebuild project](https://www.youtube.com/watch?v=PDl5CP9XZwo) :
+- Clone the repo : `git clone https://github.com/xslackx/anime-facts-rest-api.git`
 
-- Clone the repo : `git clone https://github.com/chandan-02/anime-facts-rest-api.git`
+- Run : `cd anime-facts-rest-api` & `./app.py`
 
-- Install necessary dependencies : `cd anime-facts-rest-api` & `npm install`
-
-- Create a database and tables in postgreSQL & add data in them ( use data.sql ).
-
-- Create an .env file and fill the required **postgres connection** details.
-
-- Run : `npm run dev`

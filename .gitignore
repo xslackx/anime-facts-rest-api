@@ -1,2 +1,11 @@
 /node_modules
 .env
+bin
+lib
+lib64
+bench.py
+__pycache__
+_config.yml
+*.js
+data.sql
+package.*
