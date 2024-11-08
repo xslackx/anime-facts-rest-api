@@ -33,7 +33,6 @@ def v1_get_facts(req: list, res):
           
     fact = list(map(get_facts, db["anime_facts_api"]["animes"]) )   
     msg = list(filter(lambda item: item is not None, fact))
-    print(msg[0]['facts'])
     
     total_facts = len(msg[0]['facts'])
     data_facts = []
