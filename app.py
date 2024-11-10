@@ -1,8 +1,8 @@
 #!/usr/bin/python3
-from routers.api_v1 import HTTPServer, HTTPReqHandler
+from routers.api_v1 import HTTPServer, HTTPReqHandler, ThreadingHTTPServer
 
 def app():
-    server = HTTPServer(('0.0.0.0', 8080), HTTPReqHandler)
+    server = ThreadingHTTPServer(('0.0.0.0', 8080), HTTPReqHandler)
     print('Starting httpd...\n')
     try:
         server.serve_forever()

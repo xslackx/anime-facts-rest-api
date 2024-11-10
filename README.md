@@ -79,5 +79,5 @@ Get all facts related to an Anime  : `http://localhost:8080/api/v1/?q=:anime_nam
 
 - Clone the repo : `git clone https://github.com/xslackx/anime-facts-rest-api.git`
 
-- Run : `cd anime-facts-rest-api` & `./app.py`
+- Run : `cd anime-facts-rest-api && chmod u+x app.py` & `./app.py`
 

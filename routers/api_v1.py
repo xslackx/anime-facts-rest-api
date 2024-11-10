@@ -1,5 +1,5 @@
 import json
-from http.server import BaseHTTPRequestHandler, HTTPServer
+from http.server import BaseHTTPRequestHandler, HTTPServer, ThreadingHTTPServer
 import urllib.parse
 from controllers.api_v1 import (
     v1_get_facts, 
@@ -24,6 +24,7 @@ class HTTPReqHandler(BaseHTTPRequestHandler):
             self.HTTP_OK()
             self.wfile.write(json.dumps({"message": "consult /api/v1 to see all animes supported"}).encode())
             self.log_request(200, 'OK')
+            self.close_connection
             
         # get '/api/:anime_name' v1_get_facts(req, res)
         elif len(self.query_dict) == 1  and len(self.query_dict['/api/v1/?q']) == 1:
@@ -33,6 +34,7 @@ class HTTPReqHandler(BaseHTTPRequestHandler):
                      self.HTTP_OK()
                      if v1_get_facts(query[0], self.wfile):
                          self.log_request(200, 'OK')
+                         self.close_connection
                  else:
                      pass
                      # bulk query
@@ -44,19 +46,23 @@ class HTTPReqHandler(BaseHTTPRequestHandler):
             self.HTTP_OK()
             if v1_get_facts_by_id((anime_name, fact_id), self.wfile):
                 self.log_request(200, 'OK')
+                self.close_connection
              
         # get '/api/v1' all animes  
         elif base == ['', 'api', 'v1'] or base == ['', 'api', 'v1', '']:
             self.HTTP_OK()
             if v1_get_animes('all', self.wfile):
                 self.log_request(200, 'OK')
+                self.close_connection
                              
         # get '/' home     
         elif len(self.path.split('/')) == 2 and self.path.split('/')[0] == '':
             self.HTTP_OK()
             data = json.dumps({"message": "Anime Facts Rest Python API"})
             self.wfile.write(data.encode('utf-8'))
+            self.close_connection
         else:
             self.send_response(404, "Not found")
+            self.close_connection
         
         self.end_headers()
