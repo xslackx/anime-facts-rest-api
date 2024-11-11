@@ -23,12 +23,12 @@ Get all the available anime's list : `http://localhost:8080/api/v1`
 		{
 			anime_id: 1,
 			anime_name: "bleach",
-			anime_img: "https://eaxmpleimage.com/"
+			anime_img: "https://exampleimage.com/"
 		},
 		{
 			anime_id: 2,
 			anime_name: "black_clover",
-			anime_img: "https://eaxmpleimage2.com/"
+			anime_img: "https://exampleimage2.com/"
 		},
 		...
 	]
@@ -45,7 +45,7 @@ Get all facts related to an Anime  : `http://localhost:8080/api/v1/?q=:anime_nam
 {
 	success:true,
 	total_facts: 8,
-	anime_img:"https://eaxmpleimage.com/",
+	anime_img:"https://exampleimage.com/",
 	data: [
 		{
 			fact_id: 1,
